@@ -1,7 +1,7 @@
 import random
 from typing import Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 
 from fastapi.responses import HTMLResponse
 
@@ -40,7 +40,7 @@ async def root():
 
 
 @app.post("/present")
-async def give_present(present):
+async def give_present(present: str = Query(...)):
     return {"response": f"サーバです。メリークリスマス！ {present}ありがとう。お返しは{presentSelecter()}です。"}
 
 @app.get("/items/{item_id}")
