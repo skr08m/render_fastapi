@@ -50,6 +50,5 @@ def read_item(item_id: int, q: Optional[str] = None):
 
 def presentSelecter():
     present = ["キャンディー", "チョコレート", "ケーキ"]
-    index = random.randint(0, len(present))
-
-    return present(index)
+    index = random.randint(0, len(present) - 1)
+    return present[index]
